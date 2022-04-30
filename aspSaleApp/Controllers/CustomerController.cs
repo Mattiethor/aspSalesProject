@@ -5,27 +5,23 @@ using ntv_database.Models;
 namespace aspSaleApp.Controllers
 {
 
-    [Route("api/employees")]
+    [Route("api/customers")]
     [Controller]
-    public class EmployeeController : ControllerBase
+    public class CustomerController : ControllerBase
     {
         private readonly IRepository _repository;
 
-        public EmployeeController(IRepository repository)
+        public CustomerController(IRepository repository)
         {
             _repository = repository;
         }
 
-
-
-        [HttpGet]
-
-        public ActionResult<List<Employee>> GetAllemployees()
+        public ActionResult<List<Customer>> GetAllCustomer()
         {
             try
             {
-                List<Employee> employees = _repository.GetAllEmployees();
-                return employees;
+                List<Customer> customers = _repository.GetAllCustomer();
+                return customers;
 
             }
             catch (Exception)
@@ -34,23 +30,23 @@ namespace aspSaleApp.Controllers
                 return StatusCode(500);
             }
 
-        }
 
+        }
         [HttpGet]
         [Route("{id}")]
-        public ActionResult<Employee> GetEmployeeById(int id)
+        public ActionResult<Customer> GetCustomerById(int id)
         {
 
             try
             {
-                Employee employee = _repository.GetEmployeeById(id);
-                if (employee == null)
+                Customer customer = _repository.GetCustomerById(id);
+                if (customer == null)
                 {
                     return NotFound();
                 }
                 else
                 {
-                    return Ok(employee);
+                    return Ok(customer);
                 }
 
             }
@@ -60,7 +56,6 @@ namespace aspSaleApp.Controllers
                 return StatusCode(500);
             }
         }
-
 
 
     }

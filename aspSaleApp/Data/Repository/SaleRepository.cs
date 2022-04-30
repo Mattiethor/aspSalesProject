@@ -14,6 +14,8 @@ namespace aspSaleApp.Data {
        
         }
 
+
+        //Employee
         public List<Employee> GetAllEmployees()
         {
             List<Employee> employees;
@@ -25,7 +27,9 @@ namespace aspSaleApp.Data {
             return employees;
         }
 
-        public Employee GetEmployeeById(int id)
+      
+
+         public Employee GetEmployeeById(int id)
         {
             Employee employee;
             using (var db = _dbContext) 
@@ -34,6 +38,49 @@ namespace aspSaleApp.Data {
             }
 
             return employee;
+        }
+
+        //Item
+        public List<Item> GetAllItems()
+        {
+            List<Item> items;
+            using (var db = _dbContext)
+            {
+                items = db.Items.ToList();
+
+            }
+            return items;
+        }
+        public Item GetItemById(int id)
+        {
+            Item item;
+            using (var db = _dbContext)
+            {
+                item = db.Items.FirstOrDefault(i => i.Id == id);
+            }
+
+            return item;
+        }
+
+        public List<Customer> GetAllCustomer()
+        {
+           List<Customer> customers;
+            using (var db = _dbContext)
+            {
+               customers = db.Customers.ToList();
+            }
+
+            return customers;
+        }
+
+        public Customer GetCustomerById(int id)
+        {
+            Customer customer;
+            using(var db = _dbContext)
+            {
+                customer = db.Customers.FirstOrDefault(i => i.Id == id);
+            }
+            return customer;
         }
     }
     }

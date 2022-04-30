@@ -1,31 +1,31 @@
-﻿using aspSaleApp.Data.Interfaces;
+﻿
+
+
+using aspSaleApp.Data.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using ntv_database.Models;
 
 namespace aspSaleApp.Controllers
 {
-
-    [Route("api/employees")]
+    [Route("api/items")]
     [Controller]
-    public class EmployeeController : ControllerBase
+    public class ItemController: ControllerBase
     {
         private readonly IRepository _repository;
 
-        public EmployeeController(IRepository repository)
+        public ItemController(IRepository repository)
         {
             _repository = repository;
         }
 
-
-
         [HttpGet]
 
-        public ActionResult<List<Employee>> GetAllemployees()
+        public ActionResult<List<Item>> GetAllItems()
         {
             try
             {
-                List<Employee> employees = _repository.GetAllEmployees();
-                return employees;
+                List<Item> items = _repository.GetAllItems();
+                return items;
 
             }
             catch (Exception)
@@ -35,22 +35,21 @@ namespace aspSaleApp.Controllers
             }
 
         }
-
         [HttpGet]
         [Route("{id}")]
-        public ActionResult<Employee> GetEmployeeById(int id)
+        public ActionResult<Item> GetItemById(int id)
         {
 
             try
             {
-                Employee employee = _repository.GetEmployeeById(id);
-                if (employee == null)
+                Item item = _repository.GetItemById(id);
+                if (item == null)
                 {
                     return NotFound();
                 }
                 else
                 {
-                    return Ok(employee);
+                    return Ok(item);
                 }
 
             }
@@ -60,8 +59,6 @@ namespace aspSaleApp.Controllers
                 return StatusCode(500);
             }
         }
-
-
 
     }
 }

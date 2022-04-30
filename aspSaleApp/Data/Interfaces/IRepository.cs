@@ -7,5 +7,15 @@ namespace aspSaleApp.Data.Interfaces
         List<Employee> GetAllEmployees();
 
         Employee GetEmployeeById(int id);
+
+        List<Item> GetAllItems();
+
+        Item GetItemById(int id);
+
+        List<Customer> GetAllCustomer();
+
+        Customer GetCustomerById(int id);
+
+
     }
 }
