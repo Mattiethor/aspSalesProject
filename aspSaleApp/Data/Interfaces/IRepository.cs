@@ -6,5 +6,6 @@ namespace aspSaleApp.Data.Interfaces
     {
         List<Employee> GetAllEmployees();
 
+        Employee GetEmployeeById(int id);
     }
 }

@@ -24,6 +24,17 @@ namespace aspSaleApp.Data {
             }
             return employees;
         }
+
+        public Employee GetEmployeeById(int id)
+        {
+            Employee employee;
+            using (var db = _dbContext) 
+            {
+                employee = db.Employees.FirstOrDefault(e => e.Id == id);
+            }
+
+            return employee;
+        }
     }
     }
    

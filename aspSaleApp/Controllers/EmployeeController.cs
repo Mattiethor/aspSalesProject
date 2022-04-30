@@ -20,7 +20,7 @@ namespace aspSaleApp.Controllers
 
        [HttpGet]
 
-        public List<Employee> GetAllemployees()
+        public ActionResult <List<Employee>> GetAllemployees()
         {
             try
             {
@@ -31,9 +31,34 @@ namespace aspSaleApp.Controllers
             catch (Exception)
             {
 
-                return null;
+                return StatusCode(500);
             }
 
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public ActionResult<Employee> GetEmployeeById(int id)
+        {
+            
+            try
+            {
+                Employee employee = _repository.GetEmployeeById(id);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    return Ok(employee);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(500);
+            }
         }
         
 
