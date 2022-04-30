@@ -10,7 +10,7 @@ using ntv_database.Migrations;
 
 namespace aspSaleApp.Migrations
 {
-    [DbContext(typeof(SaleContext))]
+    [DbContext(typeof(SaleDbContext))]
     partial class SaleContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ntv_database.Migrations
 {
-    public class SaleContext : DbContext
+    public class SaleDbContext : DbContext
     {
         public DbSet<Sale> Sales { get; set; }
         public DbSet<Item> Items { get; set; }
@@ -24,6 +24,6 @@ namespace ntv_database.Migrations
         }
 
     }
-    }
+}
 
 

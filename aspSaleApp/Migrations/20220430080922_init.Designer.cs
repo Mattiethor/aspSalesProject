@@ -11,7 +11,7 @@ using ntv_database.Migrations;
 
 namespace aspSaleApp.Migrations
 {
-    [DbContext(typeof(SaleContext))]
+    [DbContext(typeof(SaleDbContext))]
     [Migration("20220430080922_init")]
     partial class init
     {
