@@ -82,6 +82,48 @@ namespace aspSaleApp.Data {
             }
             return customer;
         }
+
+        public List<ItemOrder> GetAllItemsOrder()
+        {
+            List<ItemOrder> itemOrders;
+            using (var db = _dbContext)
+            {
+                itemOrders = db.ItemsOrders.ToList();
+            }
+
+            return itemOrders;
+        }
+
+        public ItemOrder GetItemOrderById(int id)
+        {
+            ItemOrder itemOrders;
+            using (var db = _dbContext)
+            {
+                itemOrders = db.ItemsOrders.FirstOrDefault(i => i.Id == id);
+            }
+            return itemOrders;
+        }
+
+        public List<Sale> GetAllSales()
+        {
+            List<Sale> sales;
+            using (var db = _dbContext)
+            {
+                sales = db.Sales.ToList();
+            }
+
+            return sales;
+        }
+
+        public Sale GetSaleById(int id)
+        {
+            Sale sale;
+            using (var db = _dbContext)
+            {
+                sale = db.Sales.FirstOrDefault(i => i.Id == id);
+            }
+            return sale;
+        }
     }
     }
    

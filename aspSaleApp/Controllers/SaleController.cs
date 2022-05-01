@@ -1,31 +1,29 @@
-﻿
-
-
-using aspSaleApp.Data.Interfaces;
+﻿using aspSaleApp.Data.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using ntv_database.Models;
 
 namespace aspSaleApp.Controllers
 {
-    [Route("api/items")]
+
+    [Route("api/sales")]
     [Controller]
-    public class ItemController : ControllerBase
+    public class SaleController : ControllerBase
     {
+
         private readonly IRepository _repository;
 
-        public ItemController(IRepository repository)
+        public SaleController(IRepository repository)
         {
             _repository = repository;
         }
 
         [HttpGet]
-
-        public ActionResult<List<Item>> GetAllItems()
+        public ActionResult<List<Sale>> GetAllSales()
         {
             try
             {
-                List<Item> items = _repository.GetAllItems();
-                return items;
+                List<Sale> sale = _repository.GetAllSales();
+                return sale;
 
             }
             catch (Exception)
@@ -35,21 +33,22 @@ namespace aspSaleApp.Controllers
             }
 
         }
+
         [HttpGet]
         [Route("{id}")]
-        public ActionResult<Item> GetItemById(int id)
+        public ActionResult<Sale> GetSaleById(int id)
         {
 
             try
             {
-                Item item = _repository.GetItemById(id);
-                if (item == null)
+                Sale sale = _repository.GetSaleById(id);
+                if (sale == null)
                 {
                     return NotFound();
                 }
                 else
                 {
-                    return Ok(item);
+                    return Ok(sale);
                 }
 
             }

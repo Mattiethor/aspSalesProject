@@ -16,6 +16,14 @@ namespace aspSaleApp.Data.Interfaces
 
         Customer GetCustomerById(int id);
 
+        List<ItemOrder> GetAllItemsOrder();
+
+        ItemOrder GetItemOrderById(int id);
+
+        List<Sale> GetAllSales();
+
+        Sale GetSaleById(int id);
+
 
     }
 }
